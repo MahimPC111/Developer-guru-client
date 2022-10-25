@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
@@ -24,6 +25,7 @@ const Login = () => {
                 form.reset();
                 setError('');
                 navigate('/');
+                toast.success('Successfully logged in!');
             })
             .catch(e => { setError(e.message) })
 
