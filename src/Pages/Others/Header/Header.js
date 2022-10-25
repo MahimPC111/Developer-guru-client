@@ -6,16 +6,25 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo.png'
 import Button from 'react-bootstrap/Button';
+import { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Header = () => {
+    const { signOutUser, user } = useContext(AuthContext);
 
+    // Theme handler section
     const [theme, setTheme] = useState(false);
-
-    const bgColor = theme ? 'bg-dark bg-opacity-10' : 'bg-dark bg-opacity-75';
-
+    const bgColor = theme ? 'bg-dark bg-opacity-75' : 'bg-dark bg-opacity-10';
+    document.body.className = bgColor;
     const handleTheme = () => {
         setTheme(!theme);
-        document.body.className = bgColor;
+    }
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => { })
+            .catch((e) => { toast.error(e.message) })
     }
 
     return (
@@ -29,16 +38,24 @@ const Header = () => {
                         height="50"
                         className="d-inline-block align-top"
                     />
-                    <Link className='ms-2 fs-3 text-decoration-none text-warning'>Learn JavaScript</Link>
+                    <Link to='/' className='ms-2 fs-3 text-decoration-none text-warning'>Learn JavaScript</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav" className="d-flex flex-row-reverse">
                     <Nav className='d-flex align-items-center'>
-                        <Link className='text-decoration-none me-3'>Courses</Link>
-                        <Link className='text-decoration-none me-3'>FAQ</Link>
-                        <Link className='text-decoration-none me-3'>Blog</Link>
-                        <Link className='text-decoration-none me-3'>Login</Link>
-                        <Link className='text-decoration-none me-3'>Register</Link>
+                        <Link to='/' className='text-decoration-none me-3'>Home</Link>
+                        <Link to='/courses' className='text-decoration-none me-3'>Courses</Link>
+                        <Link to='/faq' className='text-decoration-none me-3'>FAQ</Link>
+                        <Link to='/blogs' className='text-decoration-none me-3'>Blogs</Link>
+                        {
+                            user?.uid ?
+                                <Button className='me-3' onClick={handleSignOut} variant="outline-danger">LogOut</Button>
+                                :
+                                <>
+                                    <Link to='/login' className='text-decoration-none me-3'>LogIn</Link>
+                                    <Link to='/register' className='text-decoration-none me-3'>Register</Link>
+                                </>
+                        }
                         {
                             theme ?
                                 <Button onClick={handleTheme} variant="outline-light">Light</Button>
