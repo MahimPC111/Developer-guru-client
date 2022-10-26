@@ -7,7 +7,7 @@ import routes from './Routes/SimpleRoutes/SimpleRoutes';
 function App() {
 
   return (
-    <div className=' bg-img'>
+    <div>
       <RouterProvider router={routes}></RouterProvider>
       <Toaster></Toaster>
     </div>
