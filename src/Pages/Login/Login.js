@@ -33,13 +33,18 @@ const Login = () => {
     }
 
     return (
-        <div className='m-auto w-25 mt-5'>
-            <h4>Log In with:</h4>
-            <ButtonGroup vertical>
-                <Button className='mt-2' variant="outline-success"><Link to='/emailpassword' className='text-decoration-none text-black'>Email and Password</Link></Button>
-                <Button onClick={handleGoogleSignIn} className='mt-2 text-black' variant="outline-success">Google</Button>
-                <Button onClick={handleGithubSignIn} className='mt-2 text-black' variant="outline-success">Github</Button>
-            </ButtonGroup>
+        <div className='m-auto w-sm-25 w-50 mt-5'>
+            <h4 className='text-center'>Log In with:</h4>
+            <div className='d-flex justify-content-center'>
+                <ButtonGroup vertical>
+                    <Button className='mt-2' variant="outline-success"><Link to='/emailpassword' className='text-decoration-none text-black'>Email and Password</Link></Button>
+                    <Button onClick={handleGoogleSignIn} className='mt-2 text-black' variant="outline-success">Google</Button>
+                    <Button onClick={handleGithubSignIn} className='mt-2 text-black' variant="outline-success">Github</Button>
+                </ButtonGroup>
+            </div>
+            <p className="d-block mt-3 text-center"><small>
+                Don't have an account? Please <Link to='/register'>Register</Link>
+            </small></p>
         </div>
     );
 };

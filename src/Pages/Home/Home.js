@@ -10,8 +10,10 @@ const Home = () => {
 
     return (
         <div className='home-div'>
-            <div className='d-flex justify-content-between'>
-                <img className='w-25' src={img1} alt="" />
+            <div className='d-md-flex justify-content-between'>
+                <div className='d-flex justify-content-center'>
+                    <img className='w-75 w-sm-100' src={img1} alt="" />
+                </div>
                 <div className='w-50 mx-auto titleDiv'>
                     <h1 className='text-center'>Hi developers!</h1>
                     <h2 className='text-center'>Welcome to Learn JavaScript</h2>
@@ -19,7 +21,9 @@ const Home = () => {
                         <Link to='/courses'><Button variant="success">Get Started <FontAwesomeIcon icon={faArrowRight} /></Button></Link>
                     </div>
                 </div>
-                <img className='w-25' src={img2} alt="" />
+                <div className='d-flex justify-content-center'>
+                    <img className='w-75 w-sm-100' src={img2} alt="" />
+                </div>
             </div>
         </div>
     );

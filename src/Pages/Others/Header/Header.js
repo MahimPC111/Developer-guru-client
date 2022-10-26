@@ -45,24 +45,24 @@ const Header = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className='d-flex align-items-center pb-2 pb-sm-0 ms-sm-auto'>
-                        <Link to='/' className='text-decoration-none me-3'>Home</Link>
-                        <Link to='/courses' className='text-decoration-none me-3'>Courses</Link>
-                        <Link to='/faq' className='text-decoration-none me-3'>FAQ</Link>
-                        <Link to='/blogs' className='text-decoration-none me-3'>Blogs</Link>
+                        <Link to='/' className='text-decoration-none me-md-3'>Home</Link>
+                        <Link to='/courses' className='text-decoration-none me-md-3'>Courses</Link>
+                        <Link to='/faq' className='text-decoration-none me-md-3'>FAQ</Link>
+                        <Link to='/blogs' className='text-decoration-none me-md-3'>Blogs</Link>
                         {
                             user?.uid ?
-                                <Button className='me-3' onClick={handleSignOut} variant="outline-danger">LogOut</Button>
+                                <Button className='me-md-3  mb-2 mb-md-0' onClick={handleSignOut} variant="outline-danger">LogOut</Button>
                                 :
                                 <>
-                                    <Link to='/login' className='text-decoration-none me-3'>LogIn</Link>
-                                    <Link to='/register' className='text-decoration-none me-3'>Register</Link>
+                                    <Link to='/login' className='text-decoration-none me-md-3'>LogIn</Link>
+                                    <Link to='/register' className='text-decoration-none me-md-3 mb-2 mb-md-0'>Register</Link>
                                 </>
                         }
                         {
                             theme ?
-                                <Button className='text-decoration-none me-3' onClick={handleTheme} variant="outline-light">Light</Button>
+                                <Button className='text-decoration-none me-md-3 mb-2 mb-md-0' onClick={handleTheme} variant="outline-light">Light</Button>
                                 :
-                                <Button className='text-decoration-none me-3' onClick={handleTheme} variant="outline-light">Dark</Button>
+                                <Button className='text-decoration-none me-md-3 mb-2 mb-md-0' onClick={handleTheme} variant="outline-light">Dark</Button>
                         }
                         {
                             user?.photoURL ?

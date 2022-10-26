@@ -48,7 +48,7 @@ const Register = () => {
     }
 
     return (
-        <Form className='w-50 mt-5 mx-auto p-3 bg-light rounded' onSubmit={handleSubmit}>
+        <Form className='w-sm-50 w-75 mt-5 mx-auto p-3 bg-light rounded' onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Full name</Form.Label>
                 <Form.Control name='name' type="text" placeholder="Enter your full name" />
@@ -70,7 +70,7 @@ const Register = () => {
             </Form.Group>
 
             <Form.Text className="d-block mb-3">
-                Already have an account? <Link to='/login'>LogIn</Link>
+                <small>Already have an account? <Link to='/login'>LogIn</Link></small>
             </Form.Text>
 
             <Button variant="primary" type="submit">

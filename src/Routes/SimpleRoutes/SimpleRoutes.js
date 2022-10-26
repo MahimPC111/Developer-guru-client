@@ -8,7 +8,7 @@ import EmailAndPassword from "../../Pages/Login/EmailAndPassword/EmailAndPasswor
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Route404 from "../../Pages/Route404/Route404";
-import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+// import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const routes = createBrowserRouter([
     {
@@ -21,7 +21,8 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <PrivateRoutes><Courses></Courses></PrivateRoutes>
+                loader: () => fetch('http://localhost:5000/courses'),
+                element: <Courses></Courses>
             },
             {
                 path: '/faq',

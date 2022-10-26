@@ -12,3 +12,14 @@ h2 {
     color: rgb(148, 92, 20);
     font-weight: 500;
 }
+
+@media screen and (max-width: 576px) {
+    .titleDiv {
+        padding-top: 20px;
+    }
+
+    .titleDiv h1,
+    h2 {
+        color: cornflowerblue;
+    }
+}
