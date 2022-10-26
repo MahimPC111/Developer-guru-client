@@ -38,7 +38,7 @@ const Login = () => {
             <ButtonGroup vertical>
                 <Button className='mt-2' variant="outline-success"><Link to='/emailpassword' className='text-decoration-none text-black'>Email and Password</Link></Button>
                 <Button onClick={handleGoogleSignIn} className='mt-2 text-black' variant="outline-success">Google</Button>
-                <Button onClick={handleGithubSignIn} className='mt-2' variant="outline-success">Github</Button>
+                <Button onClick={handleGithubSignIn} className='mt-2 text-black' variant="outline-success">Github</Button>
             </ButtonGroup>
         </div>
     );

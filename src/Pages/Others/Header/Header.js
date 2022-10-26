@@ -9,6 +9,8 @@ import Button from 'react-bootstrap/Button';
 import { useContext } from 'react';
 import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 const Header = () => {
     const { signOutUser, user } = useContext(AuthContext);
@@ -58,9 +60,15 @@ const Header = () => {
                         }
                         {
                             theme ?
-                                <Button onClick={handleTheme} variant="outline-light">Light</Button>
+                                <Button className='text-decoration-none me-3' onClick={handleTheme} variant="outline-light">Light</Button>
                                 :
-                                <Button onClick={handleTheme} variant="outline-light">Dark</Button>
+                                <Button className='text-decoration-none me-3' onClick={handleTheme} variant="outline-light">Dark</Button>
+                        }
+                        {
+                            user?.photoURL ?
+                                <img style={{ width: '40px', height: '40px' }} className='rounded-circle' title={user.displayName} src={user.photoURL} alt='' />
+                                :
+                                <FontAwesomeIcon className='text-white fs-5' icon={faUser} />
                         }
                     </Nav>
                 </Navbar.Collapse>
