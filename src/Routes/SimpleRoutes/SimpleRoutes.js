@@ -42,11 +42,6 @@ const routes = createBrowserRouter([
                 path: '/emailpassword',
                 element: <EmailAndPassword></EmailAndPassword>
             },
-
-            {
-                path: '/github',
-                element: <EmailAndPassword></EmailAndPassword>
-            },
         ]
     },
     {
