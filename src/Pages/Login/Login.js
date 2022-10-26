@@ -1,63 +1,46 @@
 import React from 'react';
-import { useState } from 'react';
-import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { signInUser } = useContext(AuthContext);
-    const [error, setError] = useState('');
-    const navigate = useNavigate();
+    const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const form = event.target;
-        const email = form.email.value;
-        const password = form.password.value;
-
-        signInUser(email, password)
+    const handleGoogleSignIn = () => {
+        signInWithGoogle(googleProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                form.reset();
-                setError('');
-                navigate('/');
                 toast.success('Successfully logged in!');
             })
-            .catch(e => { setError(e.message) })
+            .catch(e => toast.error(e.message))
+    }
 
-        console.log(email, password)
+    const handleGithubSignIn = () => {
+        signInWithGithub(githubProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                toast.success('Successfully logged in!');
+            })
+            .catch(e => toast.error(e.message))
     }
 
     return (
-        <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control name='email' type="email" placeholder="Enter email" required />
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control name='password' type="password" placeholder="Type password" required />
-            </Form.Group>
-
-            <Form.Text className="d-block mb-3">
-                Don't have an account? Please <Link to='/register'>Register</Link>
-            </Form.Text>
-
-            <Button variant="primary" type="submit">
-                Submit
-            </Button>
-            <Form.Text className="text-danger d-block">
-                {
-                    error
-                }
-            </Form.Text>
-        </Form>
+        <div className='m-auto w-25 mt-5'>
+            <ButtonGroup vertical>
+                <Button className='mt-2' variant="outline-success"><Link to='/emailpassword' className='text-decoration-none text-black'>Email and Password</Link></Button>
+                <Button onClick={handleGoogleSignIn} className='mt-2 text-black' variant="outline-success">Google</Button>
+                <Button onClick={handleGithubSignIn} className='mt-2' variant="outline-success"><Link to='/github' className='text-decoration-none text-black'>Github</Link></Button>
+            </ButtonGroup>
+        </div>
     );
 };
-
+// d-flex justify-content-center 
 export default Login;

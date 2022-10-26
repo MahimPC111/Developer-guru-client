@@ -15,7 +15,7 @@ const Header = () => {
 
     // Theme handler section
     const [theme, setTheme] = useState(false);
-    const bgColor = theme ? 'bg-dark bg-opacity-75' : 'bg-dark bg-opacity-10';
+    const bgColor = theme ? 'bg-dark bg-opacity-50' : 'bg-dark bg-opacity-10';
     document.body.className = bgColor;
     const handleTheme = () => {
         setTheme(!theme);
@@ -41,8 +41,8 @@ const Header = () => {
                     <Link to='/' className='ms-2 fs-3 text-decoration-none text-warning'>Learn JavaScript</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav" className="d-flex flex-row-reverse">
-                    <Nav className='d-flex align-items-center'>
+                <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className='d-flex align-items-center pb-2 pb-sm-0 ms-sm-auto'>
                         <Link to='/' className='text-decoration-none me-3'>Home</Link>
                         <Link to='/courses' className='text-decoration-none me-3'>Courses</Link>
                         <Link to='/faq' className='text-decoration-none me-3'>FAQ</Link>
