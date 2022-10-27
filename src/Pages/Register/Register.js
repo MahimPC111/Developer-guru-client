@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -8,7 +7,6 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 
 const Register = () => {
     const { createUser, updateUserProfile, verifyUserEmail } = useContext(AuthContext);
-    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = (event) => {
@@ -29,7 +27,7 @@ const Register = () => {
                 verifyUserEmail();
                 verificationToast();
             })
-            .catch(e => setError(e.message))
+            .catch(e => toast.error(e.message))
     }
 
     const verificationToast = () => {
@@ -76,11 +74,6 @@ const Register = () => {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
-            <Form.Text className="text-danger d-block">
-                {
-                    error
-                }
-            </Form.Text>
         </Form>
     );
 };

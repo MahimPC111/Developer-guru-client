@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -10,7 +9,6 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 
 const Login = () => {
     const { signInUser, setLoading } = useContext(AuthContext);
-    const [error, setError] = useState('');
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -27,12 +25,11 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 form.reset();
-                setError('');
                 navigate(from, { replace: true });
                 toast.success('Successfully logged in!');
                 setLoading(false);
             })
-            .catch(e => { setError(e.message) })
+            .catch(e => toast.error(e.message))
 
     }
 
@@ -52,11 +49,6 @@ const Login = () => {
             <Button variant="primary" type="submit">
                 Submit
             </Button>
-            <Form.Text className="text-danger d-block">
-                {
-                    error
-                }
-            </Form.Text>
         </Form>
     );
 };
