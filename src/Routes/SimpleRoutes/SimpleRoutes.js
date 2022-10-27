@@ -48,7 +48,8 @@ const routes = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/checkout',
+                path: '/checkout/:id',
+                loader: ({ params }) => fetch(`https://developer-guru-server.vercel.app/courses/${params.id}`),
                 element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
             },
         ]

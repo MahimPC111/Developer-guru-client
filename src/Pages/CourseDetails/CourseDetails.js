@@ -6,7 +6,7 @@ import './CourseDetails.css'
 
 const Course = () => {
     const course = useLoaderData();
-    const { title, price, body, duration, img } = course;
+    const { id, title, price, body, duration, img } = course;
     return (
         <div className='py-5 px-2'>
             <h1 className='text-center bg-secondary rounded p-1 w-50 mx-auto'>{title} course package</h1>
@@ -21,7 +21,7 @@ const Course = () => {
                             <span className='m-0 fw-semibold d-block'>Course duration: {duration}</span>
                         </span>
                     </Card.Text>
-                    <Link to='/checkout'><Button variant="outline-primary" className='w-100 mt-2'>Get premium access</Button></Link>
+                    <Link to={`/checkout/${id}`}><Button variant="outline-primary" className='w-100 mt-2'>Get premium access</Button></Link>
                 </Card.Body>
             </Card>
         </div>
