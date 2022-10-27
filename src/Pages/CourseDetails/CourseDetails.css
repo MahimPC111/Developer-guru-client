@@ -1,0 +1,9 @@
+.courseCard {
+    width: 600px;
+}
+
+@media screen and (max-width:576px) {
+    .courseCard {
+        width: 300px;
+    }
+}

@@ -14,9 +14,9 @@ const Courses = () => {
         <Container fluid="md">
             <Row>
                 <Col md='2'>
-                    <h4 className='my-5 text-center'>These are our popular courses you may like!</h4>
+                    <h4 className='my-5 text-black-50 text-center'>These are our popular courses you may like!</h4>
                     {
-                        courses.map(course => <Link to={`/courses/${course.id}`} className='text-info text-decoration-none'><Button key={course.id} className='d-block w-100 m-2 bg-dark'>{course.title}</Button></Link>)
+                        courses.map(course => <Link key={course.id} to={`/courses/${course.id}`} className='text-info text-decoration-none'><Button className='d-block w-100 my-2 bg-dark'>{course.title}</Button></Link>)
                     }
                 </Col>
                 <Col md='10' className='course-section p-5'>
