@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import { useContext } from 'react';
@@ -8,9 +8,13 @@ import toast from 'react-hot-toast';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { signInWithGoogle, signInWithGithub } = useContext(AuthContext);
+    const { signInWithGoogle, signInWithGithub, setLoading } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const githubProvider = new GithubAuthProvider();
+    const navigate = useNavigate();
+
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const handleGoogleSignIn = () => {
         signInWithGoogle(googleProvider)
@@ -18,6 +22,8 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success('Successfully logged in!');
+                setLoading(false);
+                navigate(from, { replace: true });
             })
             .catch(e => toast.error(e.message))
     }
@@ -28,6 +34,8 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 toast.success('Successfully logged in!');
+                setLoading(false);
+                navigate(from, { replace: true });
             })
             .catch(e => toast.error(e.message))
     }

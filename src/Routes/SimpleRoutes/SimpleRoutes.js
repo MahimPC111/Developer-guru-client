@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layouts/Main";
 import Blogs from "../../Pages/Blogs/Blogs";
+import Checkout from "../../Pages/Checkout/Checkout";
 import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
 import FAQ from "../../Pages/FAQ/FAQ";
@@ -9,7 +10,7 @@ import EmailAndPassword from "../../Pages/Login/EmailAndPassword/EmailAndPasswor
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Route404 from "../../Pages/Route404/Route404";
-// import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const routes = createBrowserRouter([
     {
@@ -22,17 +23,17 @@ const routes = createBrowserRouter([
             },
             {
                 path: '/courses',
-                loader: () => fetch('http://localhost:5000/courses'),
+                loader: () => fetch('https://developer-guru-server.vercel.app/courses'),
                 element: <Courses></Courses>
             },
             {
                 path: '/courses/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://developer-guru-server.vercel.app/courses/${params.id}`),
                 element: <CourseDetails></CourseDetails>
             },
             {
                 path: '/faq',
-                loader: () => fetch('http://localhost:5000/faq'),
+                loader: () => fetch('https://developer-guru-server.vercel.app/faq'),
                 element: <FAQ></FAQ>
             },
             {
@@ -50,6 +51,10 @@ const routes = createBrowserRouter([
             {
                 path: '/emailpassword',
                 element: <EmailAndPassword></EmailAndPassword>
+            },
+            {
+                path: '/checkout',
+                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
             },
         ]
     },

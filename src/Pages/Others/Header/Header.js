@@ -31,7 +31,7 @@ const Header = () => {
     }
 
     return (
-        <Navbar className='p-0' collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar className='p-0' collapseOnSelect expand="md" bg="dark" variant="dark">
             <Container>
                 <Navbar.Brand className='d-flex align-items-center'>
                     <img
