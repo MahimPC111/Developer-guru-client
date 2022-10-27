@@ -6,7 +6,6 @@ import CourseDetails from "../../Pages/CourseDetails/CourseDetails";
 import Courses from "../../Pages/Courses/Courses";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
-import EmailAndPassword from "../../Pages/Login/EmailAndPassword/EmailAndPassword";
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import Route404 from "../../Pages/Route404/Route404";
@@ -47,10 +46,6 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
-            },
-            {
-                path: '/emailpassword',
-                element: <EmailAndPassword></EmailAndPassword>
             },
             {
                 path: '/checkout',
