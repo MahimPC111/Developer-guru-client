@@ -1,16 +1,34 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
+import Course from '../Course/Course';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './Courses.css'
+import { Button } from 'react-bootstrap';
 
 const Courses = () => {
     const courses = useLoaderData();
-    console.log(courses)
+    // console.log(courses)
     return (
-        <div>
-            {/* <h3>{courses.length}</h3> */}
-            {
-                // courses.map(course => <li>{course.name}</li>)
-            }
-        </div>
+        <Container fluid="md">
+            <Row>
+                <Col md='2'>
+                    <h4 className='my-5 text-center'>These are our popular courses you may like!</h4>
+                    {
+                        courses.map(course => <Link to={`/courses/${course.id}`} className='text-info text-decoration-none'><Button key={course.id} className='d-block w-100 m-2 bg-dark'>{course.title}</Button></Link>)
+                    }
+                </Col>
+                <Col md='10' className='course-section p-5'>
+                    {
+                        courses.map(course => <Course key={course.id} course={course}></Course>)
+                    }
+                </Col>
+            </Row>
+        </Container>
+
+
+
     );
 };
 

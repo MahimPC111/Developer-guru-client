@@ -1,25 +1,15 @@
-.home-div {
-    background-image: url('../../assets/Home.png');
-    height: 100vh
-}
-
 .titleDiv {
     padding-top: 80px;
 }
 
 .titleDiv h1,
 h2 {
-    color: rgb(148, 92, 20);
-    font-weight: 500;
+    color: rgb(230, 182, 119);
+    font-weight: 800;
 }
 
 @media screen and (max-width: 576px) {
     .titleDiv {
         padding-top: 20px;
-    }
-
-    .titleDiv h1,
-    h2 {
-        color: cornflowerblue;
     }
 }

@@ -9,14 +9,14 @@ import img2 from '../../assets/girl.png'
 const Home = () => {
 
     return (
-        <div className='home-div'>
+        <div>
             <div className='d-md-flex justify-content-between'>
                 <div className='d-flex justify-content-center'>
                     <img className='w-75 w-sm-100' src={img1} alt="" />
                 </div>
                 <div className='w-50 mx-auto titleDiv'>
                     <h1 className='text-center'>Hi developers!</h1>
-                    <h2 className='text-center'>Welcome to Learn JavaScript</h2>
+                    <h2 className='text-center'>Welcome to Developer Guru</h2>
                     <div className='d-flex justify-content-center mt-5'>
                         <Link to='/courses'><Button variant="success">Get Started <FontAwesomeIcon icon={faArrowRight} /></Button></Link>
                     </div>

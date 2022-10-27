@@ -34,16 +34,16 @@ const Login = () => {
 
     return (
         <div className='m-auto w-sm-25 w-50 mt-5'>
-            <h4 className='text-center'>Log In with:</h4>
+            <h4 className='text-center fw-bold'>Log In with:</h4>
             <div className='d-flex justify-content-center'>
                 <ButtonGroup vertical>
-                    <Button className='mt-2' variant="outline-success"><Link to='/emailpassword' className='text-decoration-none text-black'>Email and Password</Link></Button>
-                    <Button onClick={handleGoogleSignIn} className='mt-2 text-black' variant="outline-success">Google</Button>
-                    <Button onClick={handleGithubSignIn} className='mt-2 text-black' variant="outline-success">Github</Button>
+                    <Button className='mt-2' variant="outline-warning"><Link to='/emailpassword' className='text-decoration-none text-black'>Email and Password</Link></Button>
+                    <Button onClick={handleGoogleSignIn} className='mt-2 text-black' variant="outline-warning">Google</Button>
+                    <Button onClick={handleGithubSignIn} className='mt-2 text-black' variant="outline-warning">Github</Button>
                 </ButtonGroup>
             </div>
-            <p className="d-block mt-3 text-center"><small>
-                Don't have an account? Please <Link to='/register'>Register</Link>
+            <p className="d-block mt-3 text-center text-black"><small>
+                Don't have an account? Please <Link to='/register' className=' text-warning'>Register</Link>
             </small></p>
         </div>
     );

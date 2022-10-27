@@ -11,14 +11,15 @@ import { AuthContext } from '../../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
+import './Header.css'
 
 const Header = () => {
     const { signOutUser, user } = useContext(AuthContext);
 
     // Theme handler section
     const [theme, setTheme] = useState(false);
-    const bgColor = theme ? 'bg-dark bg-opacity-50' : 'bg-dark bg-opacity-10';
-    document.body.className = bgColor;
+    const bgImage = theme ? 'bg-leanear' : 'bg-normal';
+    document.body.className = bgImage;
     const handleTheme = () => {
         setTheme(!theme);
     }
@@ -38,9 +39,9 @@ const Header = () => {
                         src={logo}
                         width="50"
                         height="50"
-                        className="d-inline-block align-top"
+                        className="d-inline-block align-top rounded-circle"
                     />
-                    <Link to='/' className='ms-2 fs-3 text-decoration-none text-warning'>Learn JavaScript</Link>
+                    <Link to='/' className='ms-2 fs-3 text-decoration-none text-warning'>Developer Guru</Link>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
