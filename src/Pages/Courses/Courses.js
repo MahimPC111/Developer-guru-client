@@ -9,7 +9,6 @@ import { Button } from 'react-bootstrap';
 
 const Courses = () => {
     const courses = useLoaderData();
-    // console.log(courses)
     return (
         <Container fluid="md">
             <Row>

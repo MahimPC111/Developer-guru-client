@@ -16,8 +16,6 @@ const Login = () => {
 
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
-    console.log(location)
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -26,9 +24,7 @@ const Login = () => {
         const password = form.password.value;
 
         signInUser(email, password)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
+            .then(() => {
                 form.reset();
                 navigate(from, { replace: true });
                 toast.success('Successfully logged in!');
@@ -40,9 +36,7 @@ const Login = () => {
 
     const handleGoogleSignIn = () => {
         signInWithGoogle(googleProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
+            .then(() => {
                 toast.success('Successfully logged in!');
                 setLoading(false);
                 navigate(from, { replace: true });
@@ -52,9 +46,7 @@ const Login = () => {
 
     const handleGithubSignIn = () => {
         signInWithGithub(githubProvider)
-            .then(result => {
-                const user = result.user;
-                console.log(user)
+            .then(() => {
                 toast.success('Successfully logged in!');
                 setLoading(false);
                 navigate(from, { replace: true });
