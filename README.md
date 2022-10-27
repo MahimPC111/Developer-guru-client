@@ -1,6 +1,6 @@
 ## Project name: Developer Guru
 
-live site link: 
+live site link: "https://learn-javascript-889fe.web.app/"
 
 In this project I have used:
 * HTML 
